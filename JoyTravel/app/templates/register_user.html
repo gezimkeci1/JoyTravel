@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy Travel</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'Images/favicon.ico' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'Css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/register.css' %}">
+</head>
+<body>
+
+    <div id="top"></div>
+    <nav class="nav">
+        <img src="{% static 'images/logoMain.png' %}" id="topLogo">
+        <ul>
+            <li><a href="{% url 'login' %}">Log In</a></li>
+        </ul>
+    </nav>
+
+    <section class="vh-100 bg-image">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center mb-5">Sign Up</h2>
+                                <form method="POST" action="{% url 'register_user' %}">
+                                    {% csrf_token %}
+                                    <div class="form-outline mb-4">
+                                        {{ form.username.label_tag }}
+                                        {{ form.username }}
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        {{ form.password1.label_tag }}
+                                        {{ form.password1 }}
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        {{ form.password2.label_tag }}
+                                        {{ form.password2 }}
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <input type="submit" value="Sign Up" id="button" class="btn btn-primary btn-lg">
+                                    </div>
+                                    <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="{% url 'login' %}" class="fw-bold text-body"><u>Log In</u></a></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footerContainer">
+            <div class="footerRow">
+                <div class="footerCol">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </div>
+                <div class="footerCol">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href ="#">Flights</a></li>
+                        <li><a href ="#">Hotels</a></li>
+                    </ul>
+                </div>
+                <div class="footerCol">
+                    <h4>Address</h4>
+                    <ul>
+                        <li><a href ="#" onclick="event.preventDefault();">Rruga Reshit Collaku</a></li>
+                        <li><a href ="#" onclick="event.preventDefault();">dominusoft@gmail.com</a></li>
+                        <li><a href ="#" onclick="event.preventDefault();">+355 00 00 00 000</a></li>
+                    </ul>
+                </div>
+                <div class="footerCol">
+                    <h4>Follow Us</h4>
+                    <div class="socials">
+                        <a href ="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href ="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href ="https://www.twitter.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href ="https://www.linkedin.com/feed/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="{% static 'JS/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'JS/register.js' %}"></script>
+</body>
+</html>

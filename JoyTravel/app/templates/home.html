@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy Travel</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'Images/favicon.ico' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'Css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/home.css' %}">
+</head>
+<body>
+
+    <div id="top"></div>
+    <nav class="nav">
+        <img src="{% static 'images/logoMain.png' %}" id="topLogo">
+        <ul class="sidebar">
+            <li onclick="hideSidebar()"><a href="#" onclick="event.preventDefault()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="{% url 'flightsPage' %}">Flights</a></li>
+            <li><a href="{% url 'hotelsPage' %}">Hotels</a></li>
+            <li><a href="{% url 'aboutPage' %}">About Us</a></li>
+            <li><a href="{% url 'contactPage' %}">Contact</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+        </ul>
+
+        <!-- Navbar -->
+
+        <ul>
+            <li class="hideOnMobile"><a href="{% url 'flightsPage' %}">Flights</a></li>
+            <li class="hideOnMobile"><a href="{% url 'hotelsPage' %}">Hotels</a></li>
+            <li class="hideOnMobile"><a href="{% url 'aboutPage' %}">About Us</a></li>
+            <li class="hideOnMobile"><a href="{% url 'contactPage' %}">Contact</a></li>
+            <li class="hideOnMobile"><a href="{% url 'logout' %}">Log Out</a></li>
+            <li class="menuButton" onclick="showSidebar()"><a href="#" onclick="event.preventDefault()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+    </nav>
+
+    <div id="banner">
+        <div id="bannerText">
+            <h1 id="welcome">Welcome to Joy Travel</h1>
+            <h2 id="moto">Discover joy in every journey</h2>
+        </div>        
+        <div id="buttons">
+            <a href="{% url 'flightsPage' %}" class="buttons" id="firstButton">Book your flight</a>
+            <a href="{% url 'hotelsPage' %}" class="buttons" id="secondButton">Book your hotel</a>
+        </div>
+    </div>
+
+    <div id="paragraph">
+        <h1 id="paragraphTitle">Discover Your Dream Getaway</h1>
+        <p id="paragraphText">Ready for your next adventure? Look no further! With our easy-to-use hotel and flight booking service, planning your dream vacation has never been simpler. Whether you're dreaming of basking in the sun on a tropical beach, exploring historic cities, or immersing yourself in nature's wonders, we've got the perfect destination for you. Choose from a wide range of accommodations to suit every style and budget, and let us take care of the rest. With our seamless booking process and expert travel advice, all you need to do is pack your bags and get ready to make memories that last a lifetime. Start planning your next escape with us today!</p>
+    </div>
+
+    <div class="container text-center" id="cardContainer">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+            <div class="col">
+                <div class="card">
+                    <img src="{% static 'Images/plane.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Your Journey Begins Here</h5>
+                        <p class="card-text">Explore the skies with ease using our flight booking service. Choose from a wide range of airlines and travel options tailored to your needs. Start your adventure hassle-free, from takeoff to touchdown.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="{% static 'Images/hotel.jpg' %}"  class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Where Comfort Meets Convenience</h5>
+                        <p class="card-text">Find your perfect retreat with our hotel booking service. From cozy hideaways to luxurious resorts, discover accommodations that suit your style and budget. Rest easy knowing your stay is taken care of.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="{% static 'Images/experience.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Memories in the Making</h5>
+                        <p class="card-text">Enhance your journey with our curated experiences. From thrilling adventures to cultural discoveries, immerse yourself in unforgettable moments. Let us help you create memories that last a lifetime.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="{% static 'Images/vacation.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Vacation Bliss Awaits</h5>
+                        <p class="card-text">Whether it's a tropical paradise, a scenic mountain retreat, or a vibrant city, we'll craft the perfect getaway tailored to your desires. Enjoy seamless planning and unforgettable experiences, creating memories to cherish forever.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footerContainer">
+            <div class="footerRow">
+                <div class="footerCol">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="{% url 'aboutPage' %}">About Us</a></li>
+                        <li><a href="{% url 'contactPage' %}">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footerCol">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="{% url 'flightsPage' %}">Flights</a></li>
+                        <li><a href="{% url 'hotelsPage' %}">Hotels</a></li>
+                    </ul>
+                </div>
+                <div class="footerCol">
+                    <h4>Address</h4>
+                    <ul>
+                        <li><a href ="#" onclick="event.preventDefault();">Dominusoft</a></li>
+                        <li><a href ="#" onclick="event.preventDefault();">Rruga Reshit Collaku</a></li>
+                        <li><a href ="#" onclick="event.preventDefault();">dominusoft@gmail.com</a></li>
+                        <li><a href ="#" onclick="event.preventDefault();">+355 00 00 00 000</a></li>
+                    </ul>
+                </div>
+                <div class="footerCol">
+                    <h4>Follow Us</h4>
+                    <div class="socials">
+                        <a href ="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href ="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href ="https://www.twitter.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href ="https://www.linkedin.com/feed/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+<script src="{% static 'JS/home.js' %}"></script>
+<script src="{% static 'JS/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>
